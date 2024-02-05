@@ -148,5 +148,8 @@ dmypy.json
 # папки со статикой и медиа
 media/
 
+# email backend
 sent_emails/
 
+# rest
+fbv_urls_dispatch.py
