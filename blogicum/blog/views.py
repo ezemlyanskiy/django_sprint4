@@ -115,7 +115,7 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def get_success_url(self):
-        return reverse(
+        return reverse_lazy(
             'blog:profile', kwargs={'username': self.object.username}
         )
 
@@ -156,7 +156,7 @@ class CommentCreateView(CommentMixin, LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('blog:post_detail', kwargs={'pk': self.kwargs['pk']})
+        return reverse_lazy('blog:post_detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class CommentUpdateView(
