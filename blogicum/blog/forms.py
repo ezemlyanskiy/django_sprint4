@@ -11,10 +11,10 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            "first_name",
-            "last_name",
-            "username",
-            "email",
+            'first_name',
+            'last_name',
+            'username',
+            'email',
         )
 
 
@@ -24,8 +24,8 @@ class PostCreateForm(forms.ModelForm):
         model = Post
         exclude = ('author', 'is_published')
         widgets = {
-            "pub_date": forms.DateTimeInput(
-                format=("d E Y, H:i"), attrs={'type': 'datetime-local'}
+            'pub_date': forms.DateTimeInput(
+                format=('d E Y, H:i'), attrs={'type': 'datetime-local'}
             ),
         }
 
