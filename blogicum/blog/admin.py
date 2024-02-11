@@ -78,7 +78,7 @@ class CommentAdmin(admin.ModelAdmin):
         'text',
         'post',
         'author',
-        'created_at',
+        'pub_date',
     )
-    list_filter = ('created_at',)
+    list_filter = ('pub_date',)
     search_fields = ('text',)

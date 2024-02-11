@@ -99,7 +99,7 @@ class Post(PublishedModel):
 
 class Comment(models.Model):
     text = models.TextField('Комментарий')
-    created_at = models.DateTimeField('Дата публикации', auto_now_add=True)
+    pub_date = models.DateTimeField('Дата публикации', auto_now_add=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -113,7 +113,7 @@ class Comment(models.Model):
     )
 
     class Meta:
-        ordering = ('created_at',)
+        ordering = ('pub_date',)
         verbose_name = 'комментарий'
         verbose_name_plural = 'Комментарии'
 
