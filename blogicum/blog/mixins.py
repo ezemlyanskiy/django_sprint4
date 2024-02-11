@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse_lazy
 
-from .forms import CommentCreateForm, PostCreateForm
+from .forms import PostCreateForm
 from .models import Comment, Post
 
 
@@ -11,13 +11,14 @@ class PostMixin:
     form_class = PostCreateForm
 
     def get_success_url(self):
-        return reverse(
+        return reverse_lazy(
             'blog:profile',
-            kwargs={'username': self.request.user.username}
+            kwargs={'username': self.request.user.username},
         )
 
 
 class PostDispatchMixin:
+
     def dispatch(self, request, *args, **kwargs):
         post = self.get_object()
         if self.request.user != post.author:
@@ -27,7 +28,7 @@ class PostDispatchMixin:
 
 class CommentMixin:
     model = Comment
-    form_class = CommentCreateForm
+    fields = ('text',)
 
 
 class CommentDispatchSuccessMixin:
@@ -40,6 +41,6 @@ class CommentDispatchSuccessMixin:
         return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse(
+        return reverse_lazy(
             'blog:post_detail', kwargs={'pk': self.kwargs['post_id']}
         )
