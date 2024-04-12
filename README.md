@@ -2,14 +2,14 @@
 
 This is a web application written in Django to help people share their thoughts/ideas with others. Users can create their own diary (page) and generate content. The content is represented by a post that includes a location, category and message. Users can navigate to specific categories and view all related posts. They can also visit other users' pages, read and comment on them.
 
-## Quick start
+## Quick Start
 
 Navigate to the directory where you want the project to reside.
 
 ```bash
-git clone git@github.com:sava9ecode/django_sprint1.git
+git clone git@github.com:ezemlyanskiy/django_sprint4.git
 python3 -m venv venv && source venv/bin/activate
-python -m pip install --upgrade pip
+python -m pip install -U pip
 python -m pip install -r requirements.txt
 ```
 
@@ -27,7 +27,7 @@ python manage.py runserver
 
 Open your browser at http://127.0.0.1:8000.
 
-## Run the tests
+## Run Tests
 
 Navigate to the `django_sprint1` directory and execute the following commands.
 
@@ -35,7 +35,3 @@ Navigate to the `django_sprint1` directory and execute the following commands.
 pytest
 flake8
 ```
-
-## Author
-
-* [Evgeny Savage](https://github.com/sava9ecode)
